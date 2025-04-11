@@ -16,10 +16,13 @@ function App() {
   const [debugging, setDebugging] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
+  // ✅ Backend URL from .env file
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
   const apiCall = async (endpoint, dataSetter, errorMsg) => {
     setLoading(true);
     try {
-      const res = await axios.post(`http://localhost:5000/${endpoint}`, {
+      const res = await axios.post(`${backendUrl}/${endpoint}`, {
         code,
         language,
       });
@@ -85,6 +88,7 @@ function App() {
           <option value="python">Python</option>
           <option value="java">Java</option>
           <option value="cpp">C++</option>
+          <option value=".c">C</option>
         </select>
       </div>
 
