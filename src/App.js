@@ -22,7 +22,7 @@ function App() {
   const apiCall = async (endpoint, dataSetter, errorMsg) => {
     setLoading(true);
     try {
-      const res = await axios.post(`${backendUrl}/${endpoint}`, {
+      const res = await axios.post("https://ai-code-explainer-backend.onrender.com/explain", {
         code,
         language,
       });
